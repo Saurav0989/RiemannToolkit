@@ -27,19 +27,20 @@ Three independent approaches that all converge on σ = 0.5:
 riemann/ ├── factory/ # 🔥 NEW: Proof construction modules │ ├── zero_factory.py │ ├── hermitian_operator.py │ ├── information_theory_rigorous.py │ ├── uniqueness_proof.py │ └── proof_evolver.py ├── paper/ # Research papers + figures │ ├── constructive_rh_framework.tex │ └── fig1-5_*.png ├── RiemannLean/ # 🔥 NEW: Lean 4 formalization │ ├── MainTheorem.lean │ ├── InformationTheory.lean │ └── FunctionalEquation.lean ├── src/ # Core implementation ├── experiments/ # Computational experiments └── tests/ # Test suite
 
 ## 🚀 Quick Installation
-```bash
+
 git clone [https://github.com/Saurav0989/RiemannToolkit.git](https://github.com/Saurav0989/RiemannToolkit.git)
 cd RiemannToolkit
 pip install -r requirements.txt
 💻 Usage Examples
-python
 # Verify zeros on critical line
 from riemann.riemann_siegel import calculate_zeros
 zeros = calculate_zeros(100, 200)
+
 # Run the constructive proof framework
 python riemann/factory/zero_factory.py
 python riemann/factory/hermitian_operator.py
 python riemann/factory/information_theory_rigorous.py
+
 📄 Research Papers
 Constructive Proof Framework - 
 paper/constructive_rh_framework.tex
@@ -49,6 +50,7 @@ Three converging proof strategies
 Zero-Free Regions - 
 paper/zero_free_regions.tex
 Extended zero-free region theorem
+
 🔬 Lean 4 Formalization Status
 Theorem	Status
 info_minimality_critical_line	✅ Proven
@@ -58,8 +60,7 @@ eigenvalues_force_critical_line	✅ Proven
 hamburger_uniqueness	⬜ Sketched
 uniqueness_zeta	⬜ Sketched
 main_theorem	⬜ Sketched
-📚 Citation
-bibtex
+
 @software{riemanntoolkit2026,
   author = {Saurav Kumar},
   title = {RiemannToolkit: Computational Tools for Riemann Hypothesis Research},
@@ -67,8 +68,11 @@ bibtex
   url = {[https://github.com/Saurav0989/RiemannToolkit](https://github.com/Saurav0989/RiemannToolkit)},
   version = {2.0.0}
 }
+
+}
 🙏 Acknowledgments
 Inspired by the work of Berry, Keating, Conrey, Odlyzko, Montgomery, and the Lean/Mathlib community.
+
 
 📜 License
 MIT License - See 
