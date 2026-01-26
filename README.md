@@ -1,4 +1,4 @@
-<img width=150 align="right" src="https://raw.githubusercontent.com/zakandaiev/node-fastify-starter/public/favicon.svg" alt="Node.js Logo">
+<img width=150 align="right" src="https://raw.githubusercontent.com/zakandaiev/node-fastify-starter/refs/heads/main/public/favicon.svg" alt="Node.js Logo">
 
 # node-fastify-starter
 
