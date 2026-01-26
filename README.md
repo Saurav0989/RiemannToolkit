@@ -4,11 +4,8 @@
 
 Node.js Fastify Starter is a boilerplate kit for building modern backend applications
 
-## Homepage
-[https://zakandaiev.github.io/node-fastify-starter](https://zakandaiev.github.io/node-fastify-starter)
-
 ## Features
-* Node.js driven
+* Node.js engine
 * Fastify ecosystem
 * MySQL/MariaDB database
 * Swagger documentation
