@@ -3,6 +3,7 @@ import {
   getUserByConditions,
   getUserByEmail,
   getUserById,
+  normalizeUser,
 } from '#src/model/user.js';
 import authProperties from '#src/schema/auth.json' with { type: 'json' };
 import userProperties from '#src/schema/user.json' with { type: 'json' };
@@ -14,7 +15,7 @@ import bcrypt from 'bcryptjs';
 // CHECK AUTH
 async function checkAuth(request, reply) {
   const invalidReply = () => replyError(reply, {
-    сode: 401,
+    code: 401,
     message: 'Authentication error',
   });
 
@@ -53,7 +54,7 @@ function checkRole(allowedRolesOneOrMany) {
 async function postLogin(request, reply) {
   const { email, password } = request.body;
 
-  const user = await getUserByEmail({ email });
+  const user = await getUserByEmail({ email, defaultColumns: [] });
   if (!user) {
     return replyError(reply, {
       message: 'Invalid credentials',
@@ -74,13 +75,13 @@ async function postLogin(request, reply) {
     httpOnly: true,
     secure: true,
     sameSite: 'strict',
-    path: '/auth/refresh',
+    path: '/api/auth/refresh',
   });
 
   return replySuccess(reply, {
     data: {
       accessToken,
-      user,
+      user: normalizeUser(user),
     },
   });
 }
@@ -130,7 +131,7 @@ async function postLoginDev(request, reply) {
     httpOnly: true,
     secure: true,
     sameSite: 'lax',
-    path: '/auth/refresh',
+    path: '/api/auth/refresh',
   });
 
   return replySuccess(reply, {
@@ -164,7 +165,7 @@ const postLoginDevSchema = generateSchemaFromProperties(
 
 async function postLogout(request, reply) {
   reply.clearCookie('refreshToken', {
-    path: '/auth/refresh',
+    path: '/api/auth/refresh',
   });
 
   return replySuccess(reply, {

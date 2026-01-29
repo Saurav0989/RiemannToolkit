@@ -5,7 +5,7 @@ import {
 } from '#src/controller/upload.js';
 
 async function useUploadRoutes(fastify) {
-  fastify.post('', {
+  fastify.post('/upload', {
     preHandler: checkAuth,
     handler: postUpload,
     schema: postUploadSchema,
